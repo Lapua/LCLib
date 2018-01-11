@@ -6,5 +6,8 @@ Window {
     width: 800
     height: 480
 
-    Background{}
+    Background{
+        anchors.fill: parent
+        LibMenu {anchors.fill: parent}
+    }
 }
