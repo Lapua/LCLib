@@ -2,12 +2,16 @@ import QtQuick 2.6
 
 Rectangle {
     property alias title: text.text
-    //property alias color: color
-    color: "red"
+    property alias txtContentWidth: text.contentWidth
+    property alias txtContentHeight: text.contentHeight
+    property alias
+
+    //width: text.contentWidth
+    //height: text.contentHeight
 
     Text {
         id: text
         color: "white"
-        font.pointSize: parent.width/2
+        font.pointSize: root.width*0.15
     }
 }
