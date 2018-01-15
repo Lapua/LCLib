@@ -1,34 +1,43 @@
 import QtQuick 2.6
 
 Item {
-    Rectangle {
-        id: leftButton
-        anchors.top: rightButton.top
-        anchors.bottom: rightButton.bottom
-        x: parent.width/4 - width/2
-        width: rightButton.width
-        color: "red"
+    id: elemRoot
+    Row {
+        spacing: parent.width/5
+        anchors.centerIn: parent
 
-        Text {
-            text: "left"
-            color: "white"
-            font.pointSize: root.width*0.1
+        Rectangle {
+            id: leftButton
+            color: "red"
+            width: elemRoot.width/4
+            height: elemRoot.height/3
+
+            Text {
+                anchors.fill: parent
+                text: "left"
+                color: "white"
+                fontSizeMode: Text.Fit
+                font.pointSize: 500
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
         }
-    }
 
-    Rectangle {
-        id: rightButton
-        anchors.verticalCenter: parent.verticalCenter
-        x: (parent.width/4)*3// - text.Contentwidth/2
-        width: text.ContentWidth
-        height: text.ContentHeight
-        color: "blue"
+        Rectangle {
+            id: rightButton
+            color: "blue"
+            width: elemRoot.width/4
+            height: elemRoot.height/3
 
-        Text {
-            id: text
-            text: "right"
-            //color: "white"
-            font.pointSize: root.width*0.1
+            Text {
+                anchors.fill: parent
+                text: "right"
+                color: "white"
+                fontSizeMode: Text.Fit
+                font.pointSize: 500
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
         }
     }
 }
