@@ -9,7 +9,6 @@ Rectangle {
         id: text
         anchors.fill: parent
         color: "white"
-        //font.family: "MS ゴシック"
         fontSizeMode: Text.Fit
         font.pointSize: 500
         horizontalAlignment: Text.AlignHCenter
