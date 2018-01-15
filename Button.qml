@@ -1,17 +1,21 @@
 import QtQuick 2.6
 
 Rectangle {
-    property alias title: text.text
-    property alias txtContentWidth: text.contentWidth
-    property alias txtContentHeight: text.contentHeight
-    property alias
-
-    //width: text.contentWidth
-    //height: text.contentHeight
+    id: rect
+    property alias color: rect.color
+    property alias text: text.text
 
     Text {
         id: text
+        anchors.fill: parent
         color: "white"
-        font.pointSize: root.width*0.15
+        fontSizeMode: Text.Fit
+        font.pointSize: 500
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    MouseArea {
+        anchors.fill: parent
     }
 }
