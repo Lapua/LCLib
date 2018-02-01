@@ -1,4 +1,5 @@
 import QtQuick 2.6
+import "parts"
 
 Item {
     id: elemRoot
@@ -9,10 +10,13 @@ Item {
         anchors.centerIn: parent
 
         Button {
-            color: "#f44336"
+            color: "#e57373"
             width: elemRoot.width/4
             height: elemRoot.height/3
             text: "返却"
+            onClicked: {
+                console.debug("返却したい!!")
+            }
         }
 
         Button {
@@ -20,6 +24,9 @@ Item {
             width: elemRoot.width/4
             height: elemRoot.height/3
             text: "貸出"
+            onClicked: {
+                console.debug("貸出したい!!")
+            }
         }
     }
 
@@ -36,6 +43,9 @@ Item {
             width: elemRoot.width/6
             height: elemRoot.height/5
             text: "設定"
+            onClicked: {
+                console.debug("設定したい!!")
+            }
         }
 
         Button {
@@ -43,6 +53,9 @@ Item {
             width: elemRoot.width/6
             height: elemRoot.height/5
             text: "検索"
+            onClicked: {
+                console.debug("検索したい!!")
+            }
         }
     }
 }

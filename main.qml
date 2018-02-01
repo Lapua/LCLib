@@ -9,6 +9,14 @@ Window {
 
     Background{
         anchors.fill: parent
-        LibMenu {anchors.fill: parent}
+        LibMenu {
+            anchors.fill: parent
+            //visible: false
+        }
+
+        SearchList {
+            anchors.fill: parent
+            visible: false
+        }
     }
 }

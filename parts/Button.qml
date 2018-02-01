@@ -2,8 +2,8 @@ import QtQuick 2.6
 
 Rectangle {
     id: rect
-    property alias color: rect.color
     property alias text: text.text
+    signal clicked()
 
     Text {
         id: text
@@ -17,5 +17,8 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
+        onClicked: {
+            rect.clicked()
+        }
     }
 }

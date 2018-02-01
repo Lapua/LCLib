@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "httpget.h"
 
 int main(int argc, char *argv[])
 {
