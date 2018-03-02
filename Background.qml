@@ -1,4 +1,4 @@
-import QtQuick 2.6
+﻿import QtQuick 2.6
 
 Image {
     source: "pics/lc_logo.jpg"
@@ -6,7 +6,7 @@ Image {
 
     Rectangle {
         anchors.fill: parent
-        color: "white"
+        color: "black"
         opacity: 0.5
     }
 }

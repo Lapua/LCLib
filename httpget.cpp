@@ -1,9 +1,9 @@
-#include "httpget.h"
+﻿#include "httpget.h"
 
-void httpGet(QString url) {
+void HttpGet(QString url) {
     QNetworkAccessManager manager;
-    manager.get(QNetworkRequest(QUrl(url)));
+    //manager.get(QNetworkRequest(QUrl(url)));
 
-    connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(repFin(QNetworkReply*)));
+    //connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(repFin(QNetworkReply*)));
 }
 

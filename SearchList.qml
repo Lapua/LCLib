@@ -1,8 +1,8 @@
-import QtQuick 2.6
+﻿import QtQuick 2.6
 
 Item {
     ListView {
-        model: bookModel
+        //model: bookModel
         delegate:
         Row {
             Rectangle {

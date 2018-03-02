@@ -1,13 +1,15 @@
-import QtQuick 2.6
+﻿import QtQuick 2.6
 
 Rectangle {
     id: rect
+    radius: 10
     property alias text: text.text
     signal clicked()
 
     Text {
         id: text
         anchors.fill: parent
+        padding: parent.height/10
         color: "white"
         fontSizeMode: Text.Fit
         font.pointSize: 500
