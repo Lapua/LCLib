@@ -1,7 +1,7 @@
 ﻿import QtQuick 2.6
 
 Item {
-    ListView {
+    /*ListView {
         //model: bookModel
         delegate:
         Row {
@@ -15,5 +15,11 @@ Item {
                 }
             }
         }
+    }*/
+
+    //debug
+    Rectangle {
+        anchors.fill: parent
+        color: "blue"
     }
 }

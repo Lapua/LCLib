@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.3
 import "parts"
 
 Item {
-    id: elemRoot
+    id: root
 
     Row {
         id: topRow
@@ -14,8 +14,8 @@ Item {
 
         Button {
             color: "#e74c3c"
-            width: elemRoot.width/3
-            height: elemRoot.height/3
+            width: root.width/3
+            height: root.height/3
             text: "Returning"
             onClicked: {
                 console.debug("返却したい!!")
@@ -24,8 +24,8 @@ Item {
 
         Button {
             color: "#03A9F4"
-            width: elemRoot.width/3
-            height: elemRoot.height/3
+            width: root.width/3
+            height: root.height/3
             text: "Lending"
             onClicked: {
                 console.debug("貸出したい!!")
@@ -42,11 +42,29 @@ Item {
         anchors.left: topRow.left
 
         Button {
+            id: seachButton
             color: "#4CAF50"
             Layout.fillWidth: true
             Layout.preferredHeight: parent.height/3
-            //width: elemRoot.width/6
-            //height: parent.height/5
+
+            Image {
+                anchors.fill: parent
+                anchors.bottomMargin: parent.height/10
+                anchors.topMargin: parent.height/10
+                source: "pics/search.png"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            onClicked: {
+                menuID.visible = false
+                stateID.state = "search"
+            }
+        }
+
+        Button {
+            color: "#4CAF50"
+            Layout.fillWidth: true
+            Layout.preferredHeight: parent.height/3
 
             Image {
                 anchors.fill: parent
@@ -63,38 +81,8 @@ Item {
 
         Button {
             color: "#4CAF50"
-            //width: elemRoot.width/6
             Layout.fillWidth: true
             Layout.preferredHeight: parent.height/3
-            //height: parent.height/5
-
-            Image {
-                anchors.fill: parent
-                anchors.bottomMargin: parent.height/10
-                anchors.topMargin: parent.height/10
-                source: "pics/search.png"
-                fillMode: Image.PreserveAspectFit
-            }
-
-            onClicked: {
-                console.debug("検索したい!!")
-            }
-        }
-
-        Button {
-            color: "#4CAF50"
-            //width: elemRoot.width/6
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.height/3
-            //height: parent.height/5
-
-            /*Image {
-                anchors.fill: parent
-                anchors.bottomMargin: parent.height/10
-                anchors.topMargin: parent.height/10
-                source: "pics/search.png"
-                fillMode: Image.PreserveAspectFit
-            }*/
 
             onClicked: {
                 console.debug("検索したい!!")

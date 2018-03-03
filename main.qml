@@ -7,16 +7,37 @@ Window {
     width: 800
     height: 480
 
-    Background{
+    Background {
         anchors.fill: parent
         LibMenu {
+            id: menuID
             anchors.fill: parent
-            //visible: false
         }
 
         SearchList {
+            id: searchID
             anchors.fill: parent
             visible: false
         }
+    }
+
+    StateGroup {
+        id: stateID
+        states: [
+            State {
+                name: "menu"
+                PropertyChanges {
+                    target: menuID
+                    visible: true
+                }
+            },
+            State {
+                name: "search"
+                PropertyChanges {
+                    target: searchID
+                    visible: true
+                }
+            }
+        ]
     }
 }
