@@ -17,7 +17,6 @@ Item {
         }
     }*/
 
-    //debug
     Rectangle {
         anchors.fill: parent
         color: "blue"
