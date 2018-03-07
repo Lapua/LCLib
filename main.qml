@@ -1,5 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
+import "search"
 
 Window {
     id: root
@@ -14,7 +15,7 @@ Window {
             anchors.fill: parent
         }
 
-        SearchList {
+        SearchMain {
             id: searchID
             anchors.fill: parent
             visible: false
