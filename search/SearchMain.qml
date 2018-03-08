@@ -9,7 +9,9 @@ Item {
     SearchList {
         anchors {
             top:topLabel.bottom
+            topMargin: 5
             bottom: parent.bottom
+            bottomMargin: 5
         }
         width: parent.width
     }
