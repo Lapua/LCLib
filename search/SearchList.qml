@@ -5,15 +5,15 @@ ListView {
     spacing: 5
 
 
-    //model: bookModel
-    model: ListModel {
+    model: searchModel
+    /*model: ListModel {
         ListElement {
             value: "1"
         }
         ListElement {
             value: "2"
         }
-    }
+    }*/
 
     delegate: Rectangle {
         width: parent.width
@@ -28,7 +28,7 @@ ListView {
                 fill: parent
                 margins: 10
             }
-            text: model.value
+            text: model.modelData
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
             fontSizeMode: Text.Fit

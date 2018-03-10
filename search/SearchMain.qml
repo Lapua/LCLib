@@ -4,6 +4,10 @@ import "../parts"   //rootからの絶対パスに修正しよう!
 Item {
     TopLabel {
         id: topLabel
+        onClicked: {
+            searchID.visible = false
+            stateID.state = "menu"
+        }
     }
 
     SearchList {
