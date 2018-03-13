@@ -7,12 +7,15 @@
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickview.h>
 #include "httpget.h"
+#include "getjson.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
     QQmlApplicationEngine engine;
+
+    GetJson *getJson;
+    getJson = new GetJson();
 
     QStringList dataList;
     dataList.append("ryusei");
