@@ -1,7 +1,5 @@
-#include <QNetworkAccessManager>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <qjsonobject.h>
+//jsonを取得して処理するクラス
+
 #include "getjson.h"
 
 GetJson::GetJson()
@@ -16,19 +14,19 @@ GetJson::GetJson()
 void GetJson::repFin(QNetworkReply *rep){
     qDebug() << "fin!";
     QString repStr;
-    repStr = QString::fromUtf8(rep->readAll().data());
+    repStr = QString::fromUtf8(rep -> readAll().data());
 
     QJsonDocument jsonDoc = QJsonDocument::fromJson(repStr.toUtf8());
-    QJsonArray jsonArr = jsonDoc.array();
-    //QJsonObject jsonObj = jsonArr.object();
-    //QStringList strList = jsonObj.keys();
-
-    qDebug() << rep -> error();
+    jsonArr = jsonDoc.array();
 
     //toDoubleのdoubleの型を適切にすることで、メモリの節約が可能
     qDebug() << jsonArr.at(1).toObject().value("ID").toDouble();
     qDebug() << jsonArr.at(1).toObject().value("title").toString();
-    qDebug() << jsonDoc.isEmpty();
     qDebug() << jsonArr.first();
     qDebug() << jsonArr.at(1);
+}
+
+QJsonArray GetJson::getDataList()
+{
+    return jsonArr;
 }

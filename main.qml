@@ -1,3 +1,5 @@
+//各エレメントの配置と状態遷移
+
 import QtQuick 2.6
 import QtQuick.Window 2.2
 import "search"

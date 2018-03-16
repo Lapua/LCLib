@@ -1,4 +1,6 @@
-﻿import QtQuick 2.6
+﻿//ボタンエレメント
+
+import QtQuick 2.6
 
 Rectangle {
     id: rect

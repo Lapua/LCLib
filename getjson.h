@@ -3,6 +3,10 @@
 
 #include <QObject>
 #include <QNetworkReply>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <qjsonobject.h>
 
 class GetJson : public QObject
 {
@@ -10,8 +14,10 @@ class GetJson : public QObject
 
 public:
     GetJson();
-    //~GetJson();
+    QJsonArray getDataList();
 
+private:
+    QJsonArray jsonArr;
 private slots:
     void repFin(QNetworkReply*);
 };

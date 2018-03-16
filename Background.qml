@@ -1,4 +1,6 @@
-﻿import QtQuick 2.6
+﻿//LCのロゴ背景
+
+import QtQuick 2.6
 
 Image {
     source: "pics/lc_logo.jpg"

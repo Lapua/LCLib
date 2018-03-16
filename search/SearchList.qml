@@ -1,3 +1,5 @@
+//検索結果のListView部分
+
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
 

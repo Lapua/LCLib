@@ -1,4 +1,6 @@
-﻿import QtQuick 2.6
+﻿//検索のメイン画面
+
+import QtQuick 2.6
 import "../parts"   //rootからの絶対パスに修正しよう!
 
 Item {

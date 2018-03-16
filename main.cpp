@@ -1,6 +1,5 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QStringList>
 #include <qqmlengine.h>
 #include <qqmlcontext.h>
 #include <qqml.h>
@@ -15,13 +14,17 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     GetJson *getJson;
-    getJson = new GetJson();
+    getJson = new GetJson;
 
-    QStringList dataList;
-    dataList.append("ryusei");
+    QVariant dataList(getJson -> getDataList());
+    qDebug() << "vari:" << dataList.toStringList();
+
+    //QStringList dataList;
+    //dataList.append("ryusei");
 
     QQmlContext *ctxt = engine.rootContext();
-    ctxt -> setContextProperty("searchModel", QVariant::fromValue(dataList));
+    //ctxt -> setContextProperty("searchModel", QVariant::fromValue(dataList));
+    ctxt -> setContextProperty("searchModel", dataList);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

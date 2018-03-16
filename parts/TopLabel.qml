@@ -1,3 +1,5 @@
+//ホームボタンや戻るボタンなどを配置する上の青いラベル
+
 import QtQuick 2.0
 
 Rectangle {
