@@ -12,9 +12,7 @@ GetJson::GetJson()
 }
 
 void GetJson::repFin(QNetworkReply *rep){
-    qDebug() << "fin!";
-    QString repStr;
-    repStr = QString::fromUtf8(rep -> readAll().data());
+    QString repStr = QString::fromUtf8(rep -> readAll().data());
 
     QJsonDocument jsonDoc = QJsonDocument::fromJson(repStr.toUtf8());
     jsonArr = jsonDoc.array();

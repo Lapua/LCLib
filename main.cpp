@@ -17,10 +17,13 @@ int main(int argc, char *argv[])
     getJson = new GetJson;
 
     QVariant dataList(getJson -> getDataList());
-    qDebug() << "vari:" << dataList.toStringList();
+    QVariant vari(getJson -> getDataList());
+    qDebug() << dataList;
 
-    //QStringList dataList;
-    //dataList.append("ryusei");
+    QStringList strList;
+    strList.append("ryusei");
+    strList.append("suisei");
+    qDebug() << strList;
 
     QQmlContext *ctxt = engine.rootContext();
     //ctxt -> setContextProperty("searchModel", QVariant::fromValue(dataList));
