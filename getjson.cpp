@@ -4,15 +4,16 @@
 
 GetJson::GetJson()
 {
-    QString url = "https://tsurai.work/library/%E4%B8%80%E8%88%AC/API_NoEsc.php";
+    QString *url =  new QString("https://tsurai.work/library/%E4%B8%80%E8%88%AC/API_NoEsc.php");
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    manager -> get(QNetworkRequest(QUrl(url)));
+    manager -> get(QNetworkRequest(QUrl(*url)));
 
     connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(repFin(QNetworkReply*)));
 }
 
 void GetJson::repFin(QNetworkReply *rep){
-    QString repStr = QString::fromUtf8(rep -> readAll().data());
+
+    QString *repStr =  QString::fromUtf8(rep -> readAll().data());
 
     QJsonDocument jsonDoc = QJsonDocument::fromJson(repStr.toUtf8());
     jsonArr = jsonDoc.array();

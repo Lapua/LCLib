@@ -17,8 +17,8 @@ int main(int argc, char *argv[])
     getJson = new GetJson;
 
     QVariant dataList(getJson -> getDataList());
-    QVariant vari(getJson -> getDataList());
-    qDebug() << dataList;
+    QStringList stringList = dataList.toStringList();
+    qDebug() << stringList;
 
     QStringList strList;
     strList.append("ryusei");

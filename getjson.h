@@ -17,7 +17,10 @@ public:
     QJsonArray getDataList();
 
 private:
+    //QString *url;
     QJsonArray jsonArr;
+    QStringList stringList;
+
 private slots:
     void repFin(QNetworkReply*);
 };
