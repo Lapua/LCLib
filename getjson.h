@@ -17,7 +17,8 @@ public:
     QJsonArray getDataList();
 
 private:
-    //QString *url;
+    QString *url;
+    QNetworkAccessManager *manager;
     QJsonArray jsonArr;
     QStringList stringList;
 
