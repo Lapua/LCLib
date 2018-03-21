@@ -12,21 +12,12 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
 
-    GetJson *getJson;
-    getJson = new GetJson;
-
-    QVariant dataList(getJson -> getDataList());
-    QStringList stringList = dataList.toStringList();
-    qDebug() << stringList;
-
-    QStringList strList;
-    strList.append("ryusei");
-    strList.append("suisei");
-    qDebug() << strList;
+    GetJson *getJson = new GetJson;
+    qDebug() << getJson -> getDataList();
 
     QQmlContext *ctxt = engine.rootContext();
     //ctxt -> setContextProperty("searchModel", QVariant::fromValue(dataList));
-    ctxt -> setContextProperty("searchModel", dataList);
+    ctxt -> setContextProperty("searchModel", QVariant::fromValue(getJson -> getDataList()));
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

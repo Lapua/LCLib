@@ -13,20 +13,33 @@ GetJson::GetJson()
 
 void GetJson::repFin(QNetworkReply *rep){
     delete url;
-    QString repStr =  QString::fromUtf8(rep -> readAll().data());
+    QString *repStr = new QString;
+    *repStr = QString::fromUtf8(rep -> readAll().data());
     delete manager;
-    QJsonDocument jsonDoc = QJsonDocument::fromJson(repStr.toUtf8());
 
-    jsonArr = jsonDoc.array();
+    QJsonDocument *jsonDoc = new QJsonDocument;
+    *jsonDoc = QJsonDocument::fromJson(repStr -> toUtf8());
+    delete repStr;
 
-    //toDoubleのdoubleの型を適切にすることで、メモリの節約が可能
-    qDebug() << jsonArr.at(1).toObject().value("ID").toDouble();
-    qDebug() << jsonArr.at(1).toObject().value("title").toString();
-    qDebug() << jsonArr.first();
-    qDebug() << jsonArr.at(1);
+    jsonArr = new QJsonArray;
+    *jsonArr = jsonDoc -> array();
+    delete jsonDoc;
+
+    int counter;
+    counter = jsonArr -> count();
+    qDebug() << counter;
+    for( ;counter > 0 ; counter--){
+        stringList.append(jsonArr -> takeAt(0).toObject().value("title").toString());
+    }
+
+    qDebug() << stringList;
+    //qDebug() << jsonArr -> at(1).toObject().value("ID").toDouble();
+    qDebug() << jsonArr -> count();
+    //qDebug() << jsonArr -> first();
+    //qDebug() << jsonArr -> at(1);
 }
 
-QJsonArray GetJson::getDataList()
+QStringList GetJson::getDataList()
 {
-    return jsonArr;
+    return stringList;
 }

@@ -14,12 +14,12 @@ class GetJson : public QObject
 
 public:
     GetJson();
-    QJsonArray getDataList();
+    QStringList getDataList();
 
 private:
     QString *url;
     QNetworkAccessManager *manager;
-    QJsonArray jsonArr;
+    QJsonArray *jsonArr;
     QStringList stringList;
 
 private slots:
