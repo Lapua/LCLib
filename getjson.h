@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <qjsonobject.h>
+#include <QQmlContext>
 
 class GetJson : public QObject
 {
@@ -14,13 +15,14 @@ class GetJson : public QObject
 
 public:
     GetJson();
-    QStringList getDataList();
+    //QStringList getDataList();
+    void setEngine(QQmlContext *ctxt);
 
 private:
     QString *url;
     QNetworkAccessManager *manager;
     QJsonArray *jsonArr;
-    QStringList stringList;
+    QQmlContext *context;
 
 private slots:
     void repFin(QNetworkReply*);
