@@ -15,7 +15,6 @@ class GetJson : public QObject
 
 public:
     GetJson();
-    //QStringList getDataList();
     void setEngine(QQmlContext *ctxt);
 
 private:

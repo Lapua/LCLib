@@ -44,6 +44,24 @@ Item {
         anchors.left: topRow.left
 
         Button {
+            color: "#4CAF50"
+            Layout.fillWidth: true
+            Layout.preferredHeight: parent.height/3
+
+            Image {
+                anchors.fill: parent
+                anchors.bottomMargin: parent.height/10
+                anchors.topMargin: parent.height/10
+                source: "pics/shutdown.png"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            onClicked: {
+                Qt.quit();
+            }
+        }
+
+        Button {
             id: seachButton
             color: "#4CAF50"
             Layout.fillWidth: true
@@ -78,16 +96,6 @@ Item {
 
             onClicked: {
                  console.debug("インフォ見たい!!")
-            }
-        }
-
-        Button {
-            color: "#4CAF50"
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.height/3
-
-            onClicked: {
-                console.debug("検索したい!!")
             }
         }
     }

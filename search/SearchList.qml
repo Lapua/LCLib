@@ -5,17 +5,7 @@ import QtQuick.Layouts 1.3
 
 ListView {
     spacing: 5
-
-
     model: searchModel
-    /*model: ListModel {
-        ListElement {
-            value: "1"
-        }
-        ListElement {
-            value: "2"
-        }
-    }*/
 
     delegate: Rectangle {
         width: parent.width
