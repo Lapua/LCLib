@@ -35,12 +35,16 @@ void GetJson::repFin(QNetworkReply *rep){
 
     qDebug() << stringList;
     context -> setContextProperty("searchModel", QVariant::fromValue(stringList));
+    engine -> load(QUrl(QStringLiteral("qrc:/main.qml")));
+    if (engine -> rootObjects().isEmpty())
+        return -1;
 
     qDebug() << jsonArr -> count();
 }
 
-void GetJson::setEngine(QQmlContext *ctxt)
+void GetJson::setEngine(QQmlApplicationEngine *engine, QQmlContext *ctxt)
 {
     context = ctxt;
+    this -> engine = engine;
 }
 

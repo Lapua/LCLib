@@ -1,6 +1,7 @@
 #ifndef GETJSON_H
 #define GETJSON_H
 
+#include <QQmlApplicationEngine>
 #include <QObject>
 #include <QNetworkReply>
 #include <QNetworkAccessManager>
@@ -15,13 +16,14 @@ class GetJson : public QObject
 
 public:
     GetJson();
-    void setEngine(QQmlContext *ctxt);
+    void setEngine(QQmlApplicationEngine *engine, QQmlContext *ctxt);
 
 private:
     QString *url;
     QNetworkAccessManager *manager;
     QJsonArray *jsonArr;
     QQmlContext *context;
+    QQmlApplicationEngine *engine;
 
 private slots:
     void repFin(QNetworkReply*);

@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
     GetJson *getJson = new GetJson;
     QQmlContext *ctxt = engine.rootContext();
-    getJson -> setEngine(ctxt);
+    getJson -> setEngine(&engine, ctxt);
     //ctxt -> setContextProperty("searchModel", QVariant::fromValue(dataList));
     //ctxt -> setContextProperty("searchModel", QVariant::fromValue(getJson -> getDataList()));
 
