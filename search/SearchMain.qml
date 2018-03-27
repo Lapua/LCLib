@@ -13,6 +13,7 @@ Item {
     }
 
     SearchList {
+        z: -1
         anchors {
             top:topLabel.bottom
             topMargin: 5
