@@ -8,7 +8,6 @@ Item {
         id: topLabel
         onClicked: {
             searchID.visible = false
-            stateID.state = "menu"
         }
     }
 

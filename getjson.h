@@ -16,7 +16,7 @@ class GetJson : public QObject
 
 public:
     GetJson();
-    void setEngine(QQmlApplicationEngine *engine, QQmlContext *ctxt);
+    void setContext(QQmlContext *ctxt);
 
 private:
     QString *url;

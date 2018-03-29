@@ -3,6 +3,7 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
 import "search"
+import "readBook"
 
 Window {
     id: root
@@ -10,7 +11,7 @@ Window {
     width: 800
     height: 480
 
-    Background {
+    Background {    //表示する各エレメントを配置
         anchors.fill: parent
         LibMenu {
             id: menuID
@@ -22,9 +23,15 @@ Window {
             anchors.fill: parent
             visible: false
         }
+
+        Lend {
+            id: lendID
+            anchors.fill: parent
+            visible: false
+        }
     }
 
-    StateGroup {
+    StateGroup {    //画面遷移
         id: stateID
         states: [
             State {
@@ -38,6 +45,13 @@ Window {
                 name: "search"
                 PropertyChanges {
                     target: searchID
+                    visible: true
+                }
+            },
+            State {
+                name: "lend"
+                PropertyChanges {
+                    target: lendID
                     visible: true
                 }
             }

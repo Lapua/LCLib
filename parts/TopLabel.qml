@@ -24,6 +24,7 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
+                stateID.state = "menu"
                 root.clicked()
             }
         }

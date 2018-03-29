@@ -7,7 +7,7 @@ import "parts"
 Item {
     id: root
 
-    Row {
+    Row {   //貸し出し返却ボタン
         id: topRow
         spacing: parent.width/6
         anchors.horizontalCenter: parent.horizontalCenter
@@ -30,7 +30,8 @@ Item {
             height: root.height/3
             text: "Lending"
             onClicked: {
-                console.debug("貸出したい!!")
+                menuID.visible = false
+                stateID.state = "lend"
             }
         }
     }
