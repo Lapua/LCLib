@@ -2,16 +2,17 @@
 #define POST_H
 
 #include <QObject>
+#include <QDebug>
 
-class post : public QObject
+class Post : public QObject
 {
     Q_OBJECT
 public:
-    explicit post(QObject *parent = nullptr);
+    Post(QObject *parent = nullptr);
+    Q_INVOKABLE void postReq(int isbn);
 
 signals:
 
-public slots:
 };
 
 #endif // POST_H

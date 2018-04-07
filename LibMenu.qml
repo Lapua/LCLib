@@ -97,7 +97,8 @@ Item {
             }
 
             onClicked: {
-                 console.debug("インフォ見たい!!")
+                console.debug("インフォ見たい!!")
+                Post.postReq(123);
             }
         }
     }
