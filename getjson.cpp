@@ -32,6 +32,7 @@ void GetJson::repFin(QNetworkReply *rep){
     for( ;counter > 0 ; counter--){
         stringList.append(jsonArr -> takeAt(0).toObject().value("title").toString());
     }
+    delete jsonArr;
 
     context -> setContextProperty("searchModel", QVariant::fromValue(stringList));
 }

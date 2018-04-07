@@ -29,6 +29,12 @@ Window {
             anchors.fill: parent
             visible: false
         }
+
+        Return {
+            id: returnID
+            anchors.fill: parent
+            visible: false
+        }
     }
 
     StateGroup {    //画面遷移
@@ -52,6 +58,13 @@ Window {
                 name: "lend"
                 PropertyChanges {
                     target: lendID
+                    visible: true
+                }
+            },
+            State {
+                name: "return"
+                PropertyChanges {
+                    target: returnID
                     visible: true
                 }
             }

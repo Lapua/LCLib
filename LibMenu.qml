@@ -20,7 +20,8 @@ Item {
             height: root.height/3
             text: "Returning"
             onClicked: {
-                console.debug("返却したい!!")
+                menuID.visible = false
+                stateID.state = "return"
             }
         }
 
