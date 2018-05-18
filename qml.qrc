@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>parts/Button.qml</file>
+        <file>parts/TopLabel.qml</file>
+        <file>pics/arrow.svg</file>
+        <file>pics/home.svg</file>
+        <file>pics/info.png</file>
+        <file>pics/lc_logo.jpg</file>
+        <file>pics/search.png</file>
+        <file>pics/search.svg</file>
+        <file>pics/shutdown.png</file>
+        <file>pics/shutdown.svg</file>
+        <file>readBook/Lend.qml</file>
+        <file>readBook/Return.qml</file>
+        <file>search/SearchDetail.qml</file>
+        <file>search/SearchList.qml</file>
+        <file>search/SearchMain.qml</file>
+        <file>search/SearchMenu.qml</file>
+        <file>Background.qml</file>
+        <file>LibMenu.qml</file>
+    </qresource>
+</RCC>
