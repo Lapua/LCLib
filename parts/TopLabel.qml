@@ -19,7 +19,7 @@ Rectangle {
         }
         height: parent.height/3*2
         fillMode: Image.PreserveAspectFit
-        source: "../pics/home.png"
+        source: "../pics/home.svg"
 
         MouseArea {
             anchors.fill: parent

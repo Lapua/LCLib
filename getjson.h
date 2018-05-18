@@ -9,11 +9,29 @@
 #include <QJsonArray>
 #include <qjsonobject.h>
 #include <QQmlContext>
+#include "networkam.h"
 
-class GetJson : public QObject
+/*class GetJson : public QObject
 {
     Q_OBJECT
 
+public:
+    GetJson();
+    void setContext(QQmlContext *ctxt);
+
+private:
+    QString *url;
+    QNetworkAccessManager *manager;
+    QJsonArray *jsonArr;
+    QQmlContext *context;
+    QQmlApplicationEngine *engine;
+
+private slots:
+    void repFin(QNetworkReply*);
+};*/
+
+class GetJson : public NetworkAM
+{
 public:
     GetJson();
     void setContext(QQmlContext *ctxt);

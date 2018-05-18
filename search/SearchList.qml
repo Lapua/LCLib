@@ -17,6 +17,14 @@ ListView {
         border.width: 5
         border.color: "#81D4FA"
 
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                listID.visible = false
+                searchState.state = "detail"
+            }
+        }
+
         Text {
             id: modelText
             anchors {
