@@ -14,9 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     getjson.cpp \
-    main.cpp \
-    post.cpp \
-    networkam.cpp
+    main.cpp
 
 RESOURCES += qml.qrc
 
@@ -33,5 +31,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     getjson.h \
-    post.h \
-    networkam.h
+    json.h
