@@ -6,12 +6,15 @@ import "../parts"   //rootからの絶対パスに修正しよう!
 Item {
     TopLabel {
         id: topLabel
-
+        text: "検索"
         onClicked: {
             searchID.visible = false
+
         }
 
+        //戻るボタン
         Image {
+            visible: false
             anchors {
                 verticalCenter: parent.verticalCenter
                 left: parent.left
@@ -31,7 +34,10 @@ Item {
         }
     }
 
+    //各画面
     Item {
+        id: searchRoot
+
         anchors {
             top:topLabel.bottom
             topMargin: 5
@@ -41,9 +47,15 @@ Item {
         width: parent.width
         z: -1
 
-        SearchList {
-            id: listID
+        SearchMenu {
+            id: menuID
             anchors.fill: parent
+        }
+
+        SearchLTitle {
+            id: titleID
+            anchors.fill: parent
+            visible: false
         }
 
         SearchDetail {
@@ -57,10 +69,17 @@ Item {
         id: searchState
         states: [
             State {
-                name: "list"
+                name: "menu"
                 PropertyChanges {
-                    target: listID
-                    visible: ture
+                    target: menuID
+                    visible: true
+                }
+            },
+            State {
+                name: "title"
+                PropertyChanges {
+                    target: titleID
+                    visible: true
                 }
             },
             State {

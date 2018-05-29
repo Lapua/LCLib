@@ -5,17 +5,9 @@ import "../parts"
 Item {
     TopLabel {
         id: topLabel
+        text: "貸出"
         onClicked: {
             lendID.visible = false
-        }
-
-        Text {
-            anchors.fill: parent
-            text: "貸出"
-            color: "white"
-            fontSizeMode: Text.Fit
-            font.pointSize: 500
-            horizontalAlignment: Text.AlignHCenter
         }
     }
 

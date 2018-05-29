@@ -1,12 +1,12 @@
 //jsonを取得して処理するクラス
 
+#include <QFile>
 #include "getjson.h"
-#include "json.h"
 
 GetJson::GetJson(QQmlContext *ctx)
 {
     context = ctx;
-    url =  new QString("https://tsurai.work/library/%E4%B8%80%E8%88%AC/API_NoEsc.php");
+    url =  new QString("https://www.google.co.jp/");
     manager = new QNetworkAccessManager(this);
     manager -> get(QNetworkRequest(QUrl(*url)));
 
@@ -18,11 +18,16 @@ void GetJson::replyFin(QNetworkReply *reply){
     delete url;
     QString *replyStr = new QString;
     //*replyStr = QString::fromUtf8(reply -> readAll().data());
-    *replyStr = json();
     delete manager;
 
+    QFile file("/Users/Lapua/QtProject/LCLib/lib.txt");    //テスト用にファイル読み込み
+    file.open(QFile::ReadOnly);
+    QTextStream in(&file);
     QJsonDocument *jsonDoc = new QJsonDocument;
-    *jsonDoc = QJsonDocument::fromJson(replyStr -> toUtf8());
+    *jsonDoc = QJsonDocument::fromJson(in.readAll().toUtf8());
+
+    //QJsonDocument *jsonDoc = new QJsonDocument;
+    //*jsonDoc = QJsonDocument::fromJson(replyStr -> toUtf8());
     delete replyStr;
 
     jsonArr = new QJsonArray;

@@ -14,10 +14,11 @@
         <file>readBook/Lend.qml</file>
         <file>readBook/Return.qml</file>
         <file>search/SearchDetail.qml</file>
-        <file>search/SearchList.qml</file>
         <file>search/SearchMain.qml</file>
         <file>search/SearchMenu.qml</file>
         <file>Background.qml</file>
         <file>LibMenu.qml</file>
+        <file>search/SearchButton.qml</file>
+        <file>search/SearchLTitle.qml</file>
     </qresource>
 </RCC>
