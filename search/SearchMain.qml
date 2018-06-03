@@ -9,12 +9,11 @@ Item {
         text: "検索"
         onClicked: {
             searchID.visible = false
-
         }
 
         //戻るボタン
         Image {
-            visible: false
+            visible: true
             anchors {
                 verticalCenter: parent.verticalCenter
                 left: parent.left
@@ -50,6 +49,13 @@ Item {
         SearchMenu {
             id: menuID
             anchors.fill: parent
+            visible: false
+        }
+
+        SearchOption {
+            id: optionID
+            anchors.fill: parent
+            visible: true
         }
 
         SearchLTitle {

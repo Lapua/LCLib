@@ -20,5 +20,6 @@
         <file>LibMenu.qml</file>
         <file>search/SearchButton.qml</file>
         <file>search/SearchLTitle.qml</file>
+        <file>search/SearchOption.qml</file>
     </qresource>
 </RCC>
