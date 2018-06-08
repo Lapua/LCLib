@@ -22,7 +22,7 @@ Item {
         }
     }
 
-    Row {
+    /*Row {
         anchors {
             right: parent.right
             rightMargin: parent.width/20
@@ -30,9 +30,15 @@ Item {
             leftMargin: parent.width/20
         }
         y: parent.height/3*2
-        spacing: parent.width/20
+        spacing: parent.width/20*/
 
         Row {
+            anchors {
+                left: parent.left
+                leftMargin: parent.width/10
+            }
+            y: parent.height/3*2
+
             CheckBox {
                 //anchors.centerIn: parent
                 width: 50
@@ -48,5 +54,5 @@ Item {
                 text: "貸出可"
             }
         }
-    }
+    //}
 }
