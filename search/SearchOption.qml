@@ -1,6 +1,8 @@
 import QtQuick 2.0
+import "../parts"
 
 Item {
+    id: searcHOptionRootID
     Rectangle {
         anchors {
             right: parent.right
@@ -20,12 +22,31 @@ Item {
         }
     }
 
-    Text {
-        id: textID
-        width: parent.width/2
-        height: parent.height/6
-        visible: false
-        fontSizeMode: Text.Fit
-        font.pointSize: 500
+    Row {
+        anchors {
+            right: parent.right
+            rightMargin: parent.width/20
+            left: parent.left
+            leftMargin: parent.width/20
+        }
+        y: parent.height/3*2
+        spacing: parent.width/20
+
+        Row {
+            CheckBox {
+                //anchors.centerIn: parent
+                width: 50
+                height: 50
+            }
+
+            Text {
+                id: textID
+                width: searcHOptionRootID.width/10
+                height: searcHOptionRootID.height/6
+                fontSizeMode: Text.Fit
+                font.pointSize: 500
+                text: "貸出可"
+            }
+        }
     }
 }

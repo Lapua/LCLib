@@ -21,5 +21,7 @@
         <file>search/SearchButton.qml</file>
         <file>search/SearchLTitle.qml</file>
         <file>search/SearchOption.qml</file>
+        <file>parts/CheckBox.qml</file>
+        <file>pics/check.svg</file>
     </qresource>
 </RCC>
