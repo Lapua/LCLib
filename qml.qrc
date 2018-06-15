@@ -23,5 +23,6 @@
         <file>search/SearchOption.qml</file>
         <file>parts/CheckBox.qml</file>
         <file>pics/check.svg</file>
+        <file>search/DetailTextParts.qml</file>
     </qresource>
 </RCC>

@@ -6,16 +6,23 @@
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickview.h>
 #include "getjson.h"
+#include "pageback.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     QQmlContext *ctxt = engine.rootContext();
     GetJson *getJson = new GetJson(ctxt);
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    QObject *rootObject = new QObject;
+    rootObject = engine.rootObjects().first();
+    PageBack *pageback = new PageBack(rootObject);
+    engine.rootContext() -> setContextProperty("cppPageBack", pageback);
+
+
     if (engine.rootObjects().isEmpty())
         return -1;
 

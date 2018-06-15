@@ -26,8 +26,7 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    //stateID.state = "menu"
-                    //root.clicked()
+                    cppPageBack.back()
                 }
             }
         }
@@ -49,13 +48,14 @@ Item {
         SearchMenu {
             id: menuID
             anchors.fill: parent
-            visible: false
+            visible: true
         }
 
         SearchOption {
             id: optionID
+            objectName: "optionID"
             anchors.fill: parent
-            visible: true
+            visible: false
         }
 
         SearchLTitle {
@@ -73,6 +73,7 @@ Item {
 
     StateGroup {
         id: searchState
+        objectName: "searchState"
         states: [
             State {
                 name: "menu"
@@ -92,6 +93,13 @@ Item {
                 name: "detail"
                 PropertyChanges {
                     target: detailID
+                    visible: true
+                }
+            },
+            State {
+                name: "option"
+                PropertyChanges {
+                    target: optionID
                     visible: true
                 }
             }

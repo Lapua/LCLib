@@ -3,6 +3,7 @@ import "../parts"
 
 Item {
     id: searcHOptionRootID
+
     Rectangle {
         anchors {
             right: parent.right
@@ -16,43 +17,52 @@ Item {
 
         TextInput {
             anchors.fill: parent
-            horizontalAlignment: TextInput.AlignHCenter
             verticalAlignment: TextInput.AlignVCenter
             font.pointSize: textID.fontInfo.pointSize
+            layer.enabled: true
+
+            Image {
+                anchors {
+                    right: parent.right
+                    top: parent.top
+                    bottom: parent.bottom
+                    margins: parent.height/10
+                }
+                source: "../pics/search.svg"
+                fillMode: Image.PreserveAspectFit
+                opacity: 0.4
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: console.debug("alice")
+                }
+            }
         }
     }
 
-    /*Row {
+    CheckBox {
+        id: checkBoxID
         anchors {
-            right: parent.right
-            rightMargin: parent.width/20
-            left: parent.left
-            leftMargin: parent.width/20
+            right: textID.left
+            rightMargin: parent.width/30
+            verticalCenter: textID.verticalCenter
         }
-        y: parent.height/3*2
-        spacing: parent.width/20*/
+        width: height
+        height: textID.height
+    }
 
-        Row {
-            anchors {
-                left: parent.left
-                leftMargin: parent.width/10
-            }
-            y: parent.height/3*2
-
-            CheckBox {
-                //anchors.centerIn: parent
-                width: 50
-                height: 50
-            }
-
-            Text {
-                id: textID
-                width: searcHOptionRootID.width/10
-                height: searcHOptionRootID.height/6
-                fontSizeMode: Text.Fit
-                font.pointSize: 500
-                text: "貸出可"
-            }
+    Text {
+        id: textID
+        anchors {
+            left: parent.horizontalCenter
+            leftMargin: -(checkBoxID.width/2)
         }
-    //}
+        y: parent.height/5*3
+        width: height*3
+        height: searcHOptionRootID.width/12
+        fontSizeMode: Text.Fit
+        font.pointSize: 500
+        text: "貸出可"
+        color: "white"
+    }
 }

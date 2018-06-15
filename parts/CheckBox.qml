@@ -35,7 +35,7 @@ Rectangle {
                 when: onOff == false
                 PropertyChanges {
                     target: checkID
-                    opacity: 0.1
+                    opacity: 0.3
                 }
             }
         ]

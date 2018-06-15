@@ -20,6 +20,7 @@ Window {
 
         SearchMain {
             id: searchID
+            objectName: "searchID"
             anchors.fill: parent
             visible: false
         }
@@ -39,6 +40,7 @@ Window {
 
     StateGroup {    //画面遷移
         id: stateID
+        objectName: "stateID"
         states: [
             State {
                 name: "menu"

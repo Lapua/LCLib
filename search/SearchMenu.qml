@@ -13,8 +13,9 @@ Item {
             text: "タイトル"
 
             onClicked: {
-                searchState.state = "title"
+                searchState.state = "option"
                 menuID.visible = false
+                cppPageBack.setStateID("menu", "optionID")
             }
         }
 
