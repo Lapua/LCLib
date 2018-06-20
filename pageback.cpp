@@ -12,6 +12,10 @@ void PageBack::setStateID(QString preState, QString curID)
 {
     previousStateList -> insert(0, preState);
     currentIDList -> insert(0, curID);
+
+    if ( previousStateList -> length() > 3) {
+
+    }
 }
 
 void PageBack::back()
@@ -31,6 +35,6 @@ void PageBack::back()
 
     qmlObject -> setProperty("state", previousStateList -> takeFirst());
 
-    qmlObject = rootObject -> findChild<QObject*>("optionID");
+    qmlObject = rootObject -> findChild<QObject*>(currentIDList -> takeFirst());
     qmlObject -> setProperty("visible", false);
 }

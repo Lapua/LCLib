@@ -6,7 +6,6 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QString>
-#include <string>
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <qjsonobject.h>
@@ -17,6 +16,7 @@ class GetJson : public QObject
     Q_OBJECT
 public:
     GetJson(QQmlContext *ctx);
+    Q_INVOKABLE void requestGet(QString searchWord, QString searchMode);
 
 private:
     QString *url;

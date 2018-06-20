@@ -19,6 +19,7 @@ Item {
             Column {
                 DetailTextParts {
                     id: titleID
+
                 }
 
                 DetailTextParts {

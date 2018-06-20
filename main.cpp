@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     rootObject = engine.rootObjects().first();
     PageBack *pageback = new PageBack(rootObject);
     engine.rootContext() -> setContextProperty("cppPageBack", pageback);
+    engine.rootContext() -> setContextProperty("cppGetJson", getJson);
 
 
     if (engine.rootObjects().isEmpty())

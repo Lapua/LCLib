@@ -16,6 +16,7 @@ Item {
         color: "white"
 
         TextInput {
+            id: searchWordID
             anchors.fill: parent
             verticalAlignment: TextInput.AlignVCenter
             font.pointSize: textID.fontInfo.pointSize
@@ -34,7 +35,12 @@ Item {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: console.debug("alice")
+                    onClicked: {
+                        searchState.state = "list"
+                        optionID.visible = false
+                        cppGetJson.requestGet(searchWordID.text, " ")
+                        cppPageBack.setStateID("option", "listID");
+                    }
                 }
             }
         }

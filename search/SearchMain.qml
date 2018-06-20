@@ -49,6 +49,7 @@ Item {
             id: menuID
             anchors.fill: parent
             visible: true
+            //visible: false
         }
 
         SearchOption {
@@ -58,8 +59,8 @@ Item {
             visible: false
         }
 
-        SearchLTitle {
-            id: titleID
+        SearchList {
+            id: listID
             anchors.fill: parent
             visible: false
         }
@@ -68,6 +69,7 @@ Item {
             id: detailID
             anchors.fill: parent
             visible: false
+            //visible: true
         }
     }
 
@@ -83,9 +85,9 @@ Item {
                 }
             },
             State {
-                name: "title"
+                name: "list"
                 PropertyChanges {
-                    target: titleID
+                    target: listID
                     visible: true
                 }
             },
