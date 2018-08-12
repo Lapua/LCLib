@@ -2,6 +2,7 @@
 
 import QtQuick 2.6
 import "../parts"   //rootからの絶対パスに修正しよう!
+import "PageBack.js" as JsUtil
 
 Item {
     TopLabel {
@@ -33,9 +34,9 @@ Item {
     }
 
     //各画面
-    Item {
-        id: searchRoot
-
+    Loader {
+        id: searchLoader
+        objectName: "searchLoader"
         anchors {
             top:topLabel.bottom
             topMargin: 5
@@ -44,67 +45,7 @@ Item {
         }
         width: parent.width
         z: -1
-
-        SearchMenu {
-            id: menuID
-            anchors.fill: parent
-            visible: true
-            //visible: false
-        }
-
-        SearchOption {
-            id: optionID
-            objectName: "optionID"
-            anchors.fill: parent
-            visible: false
-        }
-
-        SearchList {
-            id: listID
-            anchors.fill: parent
-            visible: false
-        }
-
-        SearchDetail {
-            id: detailID
-            anchors.fill: parent
-            visible: false
-            //visible: true
-        }
-    }
-
-    StateGroup {
-        id: searchState
-        objectName: "searchState"
-        states: [
-            State {
-                name: "menu"
-                PropertyChanges {
-                    target: menuID
-                    visible: true
-                }
-            },
-            State {
-                name: "list"
-                PropertyChanges {
-                    target: listID
-                    visible: true
-                }
-            },
-            State {
-                name: "detail"
-                PropertyChanges {
-                    target: detailID
-                    visible: true
-                }
-            },
-            State {
-                name: "option"
-                PropertyChanges {
-                    target: optionID
-                    visible: true
-                }
-            }
-        ]
+        asynchronous: true
+        source: "SearchMenu.qml"
     }
 }

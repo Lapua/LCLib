@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
     engine.rootContext() -> setContextProperty("cppPageBack", pageback);
     engine.rootContext() -> setContextProperty("cppGetJson", getJson);
 
-
     if (engine.rootObjects().isEmpty())
         return -1;
 

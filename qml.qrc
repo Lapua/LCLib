@@ -24,5 +24,6 @@
         <file>pics/check.svg</file>
         <file>search/DetailTextParts.qml</file>
         <file>search/SearchList.qml</file>
+        <file>search/PageBack.js</file>
     </qresource>
 </RCC>

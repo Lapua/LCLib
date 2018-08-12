@@ -1,9 +1,8 @@
 import QtQuick 2.0
 import "../parts"
+import "PageBack.js" as JsUtil
 
 Item {
-    id: searcHOptionRootID
-
     Rectangle {
         anchors {
             right: parent.right
@@ -36,10 +35,10 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        searchState.state = "list"
-                        optionID.visible = false
+                        searchLoader.source = "SearchList.qml"
                         cppGetJson.requestGet(searchWordID.text, " ")
-                        cppPageBack.setStateID("option", "listID");
+                        cppPageBack.setHistory("SearchOption.qml");
+                        searchWordID.clear()
                     }
                 }
             }
@@ -65,10 +64,21 @@ Item {
         }
         y: parent.height/5*3
         width: height*3
-        height: searcHOptionRootID.width/12
+        height: parent.width/12
         fontSizeMode: Text.Fit
         font.pointSize: 500
         text: "貸出可"
         color: "white"
     }
+
+    /*MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            searchState.state = "list"
+            optionID.visible = false
+            cppGetJson.requestGet(searchWordID.text, " ")
+            cppPageBack.setStateID("option", "listID");
+            searchWordID.clear()
+        }
+    }*/
 }

@@ -42,7 +42,6 @@ void GetJson::replyFin(QNetworkReply *reply){
 
     int counter;
     counter = jsonArr -> count();
-    qDebug() << counter;
     QStringList stringList;
     for( ;counter > 0 ; counter--){
         stringList.append(jsonArr -> takeAt(0).toObject().value("title").toString());

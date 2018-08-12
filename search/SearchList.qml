@@ -20,8 +20,8 @@ ListView {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                listID.visible = false
-                searchState.state = "detail"
+                cppPageBack.setHistory("SearchList.qml");
+
             }
         }
 

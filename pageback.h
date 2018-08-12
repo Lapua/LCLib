@@ -8,14 +8,15 @@ class PageBack : public QObject
 {
     Q_OBJECT
 public:
-    explicit PageBack(QObject *rootObject, QObject *parent = nullptr);
-    Q_INVOKABLE void setStateID(QString preState, QString curID);
+    explicit PageBack(QObject *rootObj, QObject *parent = nullptr);
+    ~PageBack();
+    Q_INVOKABLE void setHistory(QString preSource);
     Q_INVOKABLE void back();
 
 private:
     QObject *rootObject;
-    QStringList *previousStateList;
-    QStringList *currentIDList;
+    QObject *qmlObject;
+    QStringList *historyList;
 };
 
 #endif // PAGEBACK_H

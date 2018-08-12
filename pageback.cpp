@@ -1,40 +1,37 @@
 #include "pageback.h"
+#include <QDebug>
 
 PageBack::PageBack(QObject *rootObj, QObject *parent) : QObject(parent)
 {
     rootObject = new QObject;
     rootObject = rootObj;
-    previousStateList = new QStringList;
-    currentIDList = new QStringList;
+    historyList = new QStringList;
+    qmlObject = new QObject;
 }
 
-void PageBack::setStateID(QString preState, QString curID)
+PageBack::~PageBack()
 {
-    previousStateList -> insert(0, preState);
-    currentIDList -> insert(0, curID);
+    delete rootObject;
+    delete historyList;
+    delete qmlObject;
+}
 
-    if ( previousStateList -> length() > 3) {
-
-    }
+void PageBack::setHistory(QString preSource)
+{
+    preSource = "qrc:/search/" + preSource;
+    historyList -> insert(0, preSource);
 }
 
 void PageBack::back()
 {
-    QObject *qmlObject = new QObject();
-    qmlObject = rootObject -> findChild<QObject*>("searchState");
+    if (historyList -> isEmpty()) {
+        qmlObject = rootObject -> findChild<QObject*>("searchID");
+        qmlObject -> setProperty("visible", "false");
 
-    if (previousStateList -> isEmpty()) {
         qmlObject = rootObject -> findChild<QObject*>("stateID");
         qmlObject -> setProperty("state", "menu");
-
-        qmlObject = rootObject -> findChild<QObject*>("searchID");
-        qmlObject -> setProperty("visible", false);
-
-        return;
+    } else {
+        qmlObject = rootObject -> findChild<QObject*>("searchLoader");
+        qmlObject -> setProperty("source", historyList -> takeFirst());
     }
-
-    qmlObject -> setProperty("state", previousStateList -> takeFirst());
-
-    qmlObject = rootObject -> findChild<QObject*>(currentIDList -> takeFirst());
-    qmlObject -> setProperty("visible", false);
 }
