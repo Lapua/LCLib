@@ -11,7 +11,8 @@ class Database : public QQuickItem
     Q_OBJECT
 public:
     Database();
-    Q_INVOKABLE void lend(int isbn);
+    Q_INVOKABLE void lending(int isbn);
+    Q_INVOKABLE void returning(int isbn);
 
 private:
     QSqlDatabase db;

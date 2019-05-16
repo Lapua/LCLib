@@ -7,7 +7,7 @@ import "parts"
 Item {
     id: root
 
-    Row {   //貸し出し返却ボタン
+    Row {   //貸出・返却ボタン
         id: topRow
         spacing: parent.width/6
         anchors.horizontalCenter: parent.horizontalCenter
@@ -20,8 +20,7 @@ Item {
             height: root.height/3
             text: "Returning"
             onClicked: {
-                menuID.visible = false
-                stateID.state = "return"
+                rootLoader.setSource("readBook/Return.qml")
             }
         }
 
@@ -31,8 +30,7 @@ Item {
             height: root.height/3
             text: "Lending"
             onClicked: {
-                menuID.visible = false
-                stateID.state = "lend"
+                rootLoader.setSource("readBook/Lend.qml")
             }
         }
     }
@@ -78,8 +76,7 @@ Item {
             }
 
             onClicked: {
-                menuID.visible = false
-                stateID.state = "search"
+                rootLoader.setSource("search/SearchMain.qml")
             }
         }
 

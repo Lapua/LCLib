@@ -8,9 +8,7 @@ Database::Database()
     db.setUserName("postgres");
     db.setPassword("");
 
-    qDebug() << "SQL open : " << db.open();
-
-    lend(123);
+    db.open();
 }
 
 void Database::lending(int isbn)

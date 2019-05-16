@@ -8,7 +8,7 @@ Item {
         id: topLabel
         text: "貸出"
         onClicked: {
-            lendID.visible = false
+            rootLoader.setSource("readBook/LibMenu.qml")
         }
     }
 
