@@ -7,11 +7,15 @@
 #include <QtQuick/qquickview.h>
 #include "getjson.h"
 #include "pageback.h"
+#include "database.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
     QQmlApplicationEngine engine;
+    //database
+    qmlRegisterType<Database>("Database", 1, 0, "Database");
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     QQmlContext *ctxt = engine.rootContext();

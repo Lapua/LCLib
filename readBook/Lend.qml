@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
+import Database 1.0
 import "../parts"
 
 Item {
@@ -47,6 +48,15 @@ Item {
                 horizontalAlignment: TextInput.AlignHCenter
                 verticalAlignment: TextInput.AlignVCenter
                 font.pointSize: barcodeText.fontInfo.pointSize
+            }
+
+            //Debug
+            MouseArea {
+                anchors.fill: parent
+                Database {id: database}
+                onClicked: {
+                    database.lend(1)
+                }
             }
         }
     }
