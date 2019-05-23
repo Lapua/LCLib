@@ -13,18 +13,14 @@ Database::Database()
 
 void Database::lending(int isbn)
 {
-    QSqlQuery q(db);
-    QString queryStr("update only books set available=FALSE where isbn=");
+    QString queryStr("update only books set having_user_id=1 where isbn=");
     queryStr.append(QString::number(isbn));
-    q.prepare(queryStr);
-    q.exec();
+    db.exec(queryStr);
 }
 
 void Database::returning(int isbn)
 {
-    QSqlQuery q(db);
-    QString queryStr("update only books set available=TRUE where isbn=");
+    QString queryStr("update only books set having_user_id=0 where isbn=");
     queryStr.append(QString::number(isbn));
-    q.prepare(queryStr);
-    q.exec();
+    db.exec(queryStr);
 }

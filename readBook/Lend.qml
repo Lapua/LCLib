@@ -43,6 +43,7 @@ Item {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 
             TextInput {
+                id: isbn
                 anchors.fill: parent
                 focus: true
                 horizontalAlignment: TextInput.AlignHCenter
@@ -55,7 +56,7 @@ Item {
                 anchors.fill: parent
                 Database {id: database}
                 onClicked: {
-                    database.lend(1)
+                    database.lending(isbn.text)
                 }
             }
         }
