@@ -94,8 +94,7 @@ Item {
             }
 
             onClicked: {
-                console.debug("インフォ見たい!!")
-                Post.postReq(123);
+                rootLoader.setSource("user/userManager.qml")
             }
         }
     }

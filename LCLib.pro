@@ -37,4 +37,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     getjson.h \
     pageback.h \
-    database.h
+    database.h \
+    dbmodel.h \
+    appengine.h

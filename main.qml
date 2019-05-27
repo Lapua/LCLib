@@ -5,6 +5,8 @@ import QtQuick.Window 2.2
 import "search"
 import "readBook"
 
+import Database 1.0
+
 Window {
     id: root
     visible: true
@@ -17,7 +19,8 @@ Window {
         Loader {
             id: rootLoader
             anchors.fill: parent
-            source: "LibMenu.qml"
+            //source: "LibMenu.qml"
+            source: "user/userManager.qml"
             focus: true
         }
     }

@@ -8,13 +8,19 @@
 #include "getjson.h"
 #include "pageback.h"
 #include "database.h"
+#include "appengine.h"
+
+QQmlApplicationEngine* AppEngine::m_engine;
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+    AppEngine::set(&engine);
     //database
+    Database d;
+    d.getUserList();
     qmlRegisterType<Database>("Database", 1, 0, "Database");
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
@@ -30,6 +36,7 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return -1;
 
+    //d.getUserList();
     QObject::connect(&engine, &QQmlApplicationEngine::quit, &app, &QGuiApplication::quit);
 
     return app.exec();

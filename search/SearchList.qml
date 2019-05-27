@@ -6,10 +6,6 @@ import QtQuick.Layouts 1.3
 ListView {
     spacing: 5
     model: searchModel
-    displayMarginBeginning: 0
-    displayMarginEnd: 0
-    cacheBuffer: 0
-
     delegate: Rectangle {
         width: parent.width
         height: 100
