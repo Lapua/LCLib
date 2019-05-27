@@ -7,9 +7,6 @@ Item {
     TopLabel {
         id: topLabel
         text: "貸出"
-        onClicked: {
-            rootLoader.setSource("readBook/LibMenu.qml")
-        }
     }
 
     ColumnLayout {

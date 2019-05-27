@@ -25,6 +25,7 @@
         <file>search/DetailTextParts.qml</file>
         <file>search/SearchList.qml</file>
         <file>search/PageBack.js</file>
-        <file>user/userManager.qml</file>
+        <file>user/List.qml</file>
+        <file>user/Delegate.qml</file>
     </qresource>
 </RCC>

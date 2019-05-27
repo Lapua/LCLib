@@ -6,18 +6,7 @@ import "../parts"
 Item {
     TopLabel {
         id: topLabel
-        onClicked: {
-            returnID.visible = false
-        }
-
-        Text {
-            anchors.fill: parent
-            text: "返却"
-            color: "white"
-            fontSizeMode: Text.Fit
-            font.pointSize: 500
-            horizontalAlignment: Text.AlignHCenter
-        }
+        text: "返却"
     }
 
     ColumnLayout {

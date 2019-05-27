@@ -7,6 +7,7 @@ Rectangle {
     anchors.top: parent.top
     width: parent.width
     height: parent.height/7
+    z: 1
     color: "#3498db"
 
     property alias text: text.text

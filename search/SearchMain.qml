@@ -8,9 +8,6 @@ Item {
     TopLabel {
         id: topLabel
         text: "検索"
-        onClicked: {
-            searchID.visible = false
-        }
 
         //戻るボタン
         Image {

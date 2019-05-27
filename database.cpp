@@ -11,6 +11,12 @@ Database::Database()
     qDebug() << db.open();
 }
 
+Database::~Database()
+{
+    db.close();
+    qDebug() << "db closed";
+}
+
 void Database::lending(int isbn)
 {
     QString queryStr("update only books set having_user_id=1 where isbn=");
@@ -31,7 +37,7 @@ void Database::getUserList()
     model.setQuery("select * from users", db);
 
     QList<QObject*> list;
-    for (int i = 0; i < model.record().count(); i++) {
+    for (int i = 0; i < model.rowCount(); i++) {
         QSqlRecord record = model.record(i);
 
         int id = record.value(columnNum::ID).toInt();
@@ -40,9 +46,12 @@ void Database::getUserList()
         list.append(new DBModel(id, name));
     }
 
-    QStringList str;
-    str.append("dia");
-    str.append("media");
-
     AppEngine::get()->rootContext()->setContextProperty("userModel", QVariant::fromValue(list));
+}
+
+void Database::deleteUser(int id)
+{
+    QString queryStr("delete from users where id=");
+    queryStr.append(QString::number(id));
+    db.exec(queryStr);
 }

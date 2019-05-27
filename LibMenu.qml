@@ -94,7 +94,7 @@ Item {
             }
 
             onClicked: {
-                rootLoader.setSource("user/userManager.qml")
+                rootLoader.setSource("user/List.qml")
             }
         }
     }
