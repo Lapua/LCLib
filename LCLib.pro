@@ -39,4 +39,4 @@ HEADERS += \
     pageback.h \
     database.h \
     dbmodel.h \
-    appengine.h
+    staticprovider.h

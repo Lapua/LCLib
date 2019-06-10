@@ -10,18 +10,19 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "dbmodel.h"
-#include "appengine.h"
+#include "staticprovider.h"
 
 class Database : public QQuickItem
 {
     Q_OBJECT
 public:
     Database();
-    ~Database();
     Q_INVOKABLE void lending(int isbn);
     Q_INVOKABLE void returning(int isbn);
     Q_INVOKABLE void getUserList();
     Q_INVOKABLE void deleteUser(int id);
+    Q_INVOKABLE void addUser(QString name);
+    Q_INVOKABLE void closeDb();
 
 private:
     QSqlDatabase db;

@@ -11,6 +11,7 @@ Rectangle {
     color: "#3498db"
 
     property alias text: text.text
+    property alias homeButtonId: homeButtonId
     signal clicked()
 
     Text {
@@ -21,10 +22,10 @@ Rectangle {
         font.pointSize: 500
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-
     }
 
     Image {
+        id: homeButtonId
         anchors {
             verticalCenter: parent.verticalCenter
             right: parent.right

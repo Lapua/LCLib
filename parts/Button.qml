@@ -5,7 +5,7 @@ import QtQuick 2.6
 Rectangle {
     id: rect
     radius: 10
-    property alias text: text.text
+    property alias text: text
     signal clicked()
 
     Text {

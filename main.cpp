@@ -8,19 +8,19 @@
 #include "getjson.h"
 #include "pageback.h"
 #include "database.h"
-#include "appengine.h"
+#include "staticprovider.h"
 
-QQmlApplicationEngine* AppEngine::m_engine;
+QQmlApplicationEngine *StaticProvider::m_engine;
+QSqlDatabase StaticProvider::m_database;
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    AppEngine::set(&engine);
-    //database
-    Database d;
-    d.getUserList();
+
+    StaticProvider::setEngine(&engine);
+    StaticProvider::connectDatabase();
     qmlRegisterType<Database>("Database", 1, 0, "Database");
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

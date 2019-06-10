@@ -1,6 +1,4 @@
-﻿//menu画面。ボタンが配置してある
-
-import QtQuick 2.6
+﻿import QtQuick 2.6
 import QtQuick.Layouts 1.3
 import "parts"
 
@@ -18,7 +16,7 @@ Item {
             color: "#e74c3c"
             width: root.width/3
             height: root.height/3
-            text: "Returning"
+            text.text: "Returning"
             onClicked: {
                 rootLoader.setSource("readBook/Return.qml")
             }
@@ -28,7 +26,7 @@ Item {
             color: "#03A9F4"
             width: root.width/3
             height: root.height/3
-            text: "Lending"
+            text.text: "Lending"
             onClicked: {
                 rootLoader.setSource("readBook/Lend.qml")
             }
@@ -92,9 +90,9 @@ Item {
                 source: "pics/info.png"
                 fillMode: Image.PreserveAspectFit
             }
-
             onClicked: {
                 rootLoader.setSource("user/List.qml")
+                db.getUserList()
             }
         }
     }

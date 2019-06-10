@@ -4,7 +4,6 @@ import QtQuick 2.6
 import QtQuick.Window 2.2
 import "search"
 import "readBook"
-
 import Database 1.0
 
 Window {
@@ -12,6 +11,8 @@ Window {
     visible: true
     width: 800
     height: 480
+
+    Database{id: db}
 
     Background {    //表示する各エレメントを配置
         anchors.fill: parent

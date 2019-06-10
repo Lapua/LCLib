@@ -1,11 +1,8 @@
 import QtQuick 2.0
-import Database 1.0
-
 
 Item {
     width: parent.width
     height: 70
-    Database {id: db}
 
     Rectangle {
         anchors.centerIn: parent
@@ -47,6 +44,7 @@ Item {
                     color: "white"
                     font.pixelSize: 50
                     horizontalAlignment: Text.Center
+                    fontSizeMode: Text.Fit
                 }
 
                 MouseArea {
@@ -68,9 +66,13 @@ Item {
                     color: "red"
                     width: parent.width/2 - 5; height: parent.height
                     anchors.right: parent.right
+
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: db.deleteUser(invisibleId.text)
+                        onClicked: {
+                            db.deleteUser(invisibleId.text)
+                            db.getUserList()
+                        }
                     }
                 }
 
@@ -79,6 +81,7 @@ Item {
                     color: "gray"
                     width: sure.width; height: sure.height
                     anchors.left: parent.left
+
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {

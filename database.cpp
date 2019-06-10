@@ -3,18 +3,7 @@
 
 Database::Database()
 {
-    db = QSqlDatabase::addDatabase("QPSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("qt_practice");
-    db.setUserName("postgres");
-    db.setPassword("");
-    qDebug() << db.open();
-}
-
-Database::~Database()
-{
-    db.close();
-    qDebug() << "db closed";
+    db = QSqlDatabase::database();
 }
 
 void Database::lending(int isbn)
@@ -46,7 +35,7 @@ void Database::getUserList()
         list.append(new DBModel(id, name));
     }
 
-    AppEngine::get()->rootContext()->setContextProperty("userModel", QVariant::fromValue(list));
+    StaticProvider::getEngine()->rootContext()->setContextProperty("userModel", QVariant::fromValue(list));
 }
 
 void Database::deleteUser(int id)
@@ -54,4 +43,19 @@ void Database::deleteUser(int id)
     QString queryStr("delete from users where id=");
     queryStr.append(QString::number(id));
     db.exec(queryStr);
+}
+
+void Database::addUser(QString name)
+{
+    if (!name.isEmpty()) {
+        QString queryStr("insert into users (name) values('" + name + "')");
+        db.exec(queryStr);
+    } else {
+        qWarning() << "Failed to add user: user name is empty";
+    }
+}
+
+void Database::closeDb()
+{
+    db.close();
 }

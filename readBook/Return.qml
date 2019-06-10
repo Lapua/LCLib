@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
-import Database 1.0
 import "../parts"
 
 Item {
@@ -50,9 +49,8 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                Database {id: database}
                 onClicked: {
-                    database.returning(isbn.text)
+                    db.returning(isbn.text)
                 }
             }
         }
