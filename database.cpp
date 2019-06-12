@@ -4,6 +4,12 @@
 Database::Database()
 {
     db = QSqlDatabase::database();
+    qDebug() << "created";
+}
+
+Database::~Database()
+{
+    qDebug() << "deleted";
 }
 
 void Database::lending(int isbn)
@@ -35,7 +41,7 @@ void Database::getUserList()
         list.append(new DBModel(id, name));
     }
 
-    StaticProvider::getEngine()->rootContext()->setContextProperty("userModel", QVariant::fromValue(list));
+    StaticProvider::getEngine()->rootContext()->setContextProperty("userModel",  QVariant::fromValue(list));
 }
 
 void Database::deleteUser(int id)
@@ -53,6 +59,11 @@ void Database::addUser(QString name)
     } else {
         qWarning() << "Failed to add user: user name is empty";
     }
+}
+
+void Database::addBook(QString isbn)
+{
+    network.getBookDetail(isbn);
 }
 
 void Database::closeDb()

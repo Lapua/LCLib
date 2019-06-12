@@ -11,21 +11,25 @@
 #include <QQmlContext>
 #include "dbmodel.h"
 #include "staticprovider.h"
+#include "network.h"
 
 class Database : public QQuickItem
 {
     Q_OBJECT
 public:
     Database();
+    ~Database();
     Q_INVOKABLE void lending(int isbn);
     Q_INVOKABLE void returning(int isbn);
     Q_INVOKABLE void getUserList();
     Q_INVOKABLE void deleteUser(int id);
     Q_INVOKABLE void addUser(QString name);
+    Q_INVOKABLE void addBook(QString isbn);
     Q_INVOKABLE void closeDb();
 
 private:
     QSqlDatabase db;
+    Network network;
 
     enum columnNum {
         ID = 0,

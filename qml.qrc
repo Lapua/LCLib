@@ -27,5 +27,6 @@
         <file>user/List.qml</file>
         <file>user/Delegate.qml</file>
         <file>user/Add.qml</file>
+        <file>addBook/AddBook.qml</file>
     </qresource>
 </RCC>

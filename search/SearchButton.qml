@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "../parts"
+import "qrc:/parts"
 
 Button {
     width: searchMenuRoot.width/4

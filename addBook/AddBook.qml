@@ -5,7 +5,7 @@ import "qrc:/parts"
 Item {
     TopLabel {
         id: topLabel
-        text: "貸出"
+        text: "書籍登録"
     }
 
     ColumnLayout {
@@ -51,7 +51,8 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    db.lending(isbn.text)
+                    //db.addBook(isbn.text)
+                    db.addBook("9784325226826")
                 }
             }
         }

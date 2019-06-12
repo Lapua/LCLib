@@ -5,7 +5,7 @@
 #include <qqml.h>
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickview.h>
-#include "getjson.h"
+#include "network.h"
 #include "pageback.h"
 #include "database.h"
 #include "staticprovider.h"
@@ -25,13 +25,11 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     QQmlContext *ctxt = engine.rootContext();
-    GetJson *getJson = new GetJson(ctxt);
 
     QObject *rootObject = new QObject;
     rootObject = engine.rootObjects().first();
     PageBack *pageback = new PageBack(rootObject);
     engine.rootContext() -> setContextProperty("cppPageBack", pageback);
-    engine.rootContext() -> setContextProperty("cppGetJson", getJson);
 
     if (engine.rootObjects().isEmpty())
         return -1;

@@ -20,7 +20,8 @@ Window {
         Loader {
             id: rootLoader
             anchors.fill: parent
-            source: "LibMenu.qml"
+            //source: "LibMenu.qml"
+            source: "addBook/AddBook.qml"
             focus: true
         }
     }

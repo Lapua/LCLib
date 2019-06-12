@@ -16,10 +16,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    getjson.cpp \
     main.cpp \
     pageback.cpp \
-    database.cpp
+    database.cpp \
+    network.cpp
 
 RESOURCES += qml.qrc
 
@@ -35,8 +35,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    getjson.h \
-    pageback.h \
     database.h \
     dbmodel.h \
-    staticprovider.h
+    staticprovider.h \
+    pageback.h \
+    network.h
