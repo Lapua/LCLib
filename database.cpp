@@ -4,12 +4,11 @@
 Database::Database()
 {
     db = QSqlDatabase::database();
-    qDebug() << "created";
 }
 
 Database::~Database()
 {
-    qDebug() << "deleted";
+    //
 }
 
 void Database::lending(int isbn)

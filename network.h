@@ -22,8 +22,6 @@ private:
 
 private slots:
     void replyFin();
-    void replyFinn(QNetworkReply *reply);
-    void alice();
 };
 
 #endif // GETJSON_H
