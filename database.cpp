@@ -78,7 +78,6 @@ void Database::addBook()
     query.bindValue(":title", *title);
     query.bindValue(":isbn", addBookIsbn);
     query.exec();
-    qDebug() << query.lastError();
 }
 
 void Database::closeDb()
