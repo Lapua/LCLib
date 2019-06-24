@@ -1,5 +1,4 @@
 #include "network.h"
-#include <QThread>
 
 Network::Network()
 {
@@ -8,21 +7,14 @@ Network::Network()
 
 void Network::getBookDetail(QString &isbn)
 {
-    QString url("https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn);
-
-    //manager = new QNetworkAccessManager;
+    QString url = BASE_URL + isbn;
     reply = manager.get(QNetworkRequest(QUrl(url)));
 
     connect(&manager, &QNetworkAccessManager::finished, this, &Network::replyFin);
-//    connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &Network::alice);
-//    connect(reply, &QNetworkReply::finished, this, &Network::replyFin);
-//    connect(reply, &QIODevice::readyRead, this, &Network::replyFin);
-//    connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(replyFinn(QNetworkReply*)));
 }
 
 void Network::replyFin()
 {
-    qDebug() << "got reply";
     QString replyStr;
     replyStr = QString::fromUtf8(reply->readAll().data());
     reply->deleteLater();   //QNetworkAccessManagerのドキュメントに自分で消してねと書いてある(気がする)
@@ -30,12 +22,15 @@ void Network::replyFin()
     QJsonDocument jsonDoc;
     jsonDoc = QJsonDocument::fromJson(replyStr.toUtf8());
 
-    QJsonArray jsonArr = jsonDoc.array();
+    QJsonObject jsonObjRoot = jsonDoc.object();
+    QJsonObject jsonObjItems = jsonObjRoot["items"].toArray().first().toObject();
+    QJsonObject jsonObjVInfo = jsonObjItems["volumeInfo"].toObject();
+    title = jsonObjVInfo.value("title").toString();
 
-//    int counter;
-//    counter = jsonArr.count();
-//    QStringList stringList;
-//    for( ;counter > 0 ; counter--){
-//        stringList.append(jsonArr -> takeAt(0).toObject().value("title").toString());
-//    }
+    emit responseReceived();
+}
+
+QString* Network::getTitle()
+{
+    return &title;
 }

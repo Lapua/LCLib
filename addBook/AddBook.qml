@@ -52,7 +52,7 @@ Item {
                 anchors.fill: parent
                 onClicked: {
                     //db.addBook(isbn.text)
-                    db.addBook("9784325226826")
+                    db.requestBookDetail("9784325226826")
                 }
             }
         }

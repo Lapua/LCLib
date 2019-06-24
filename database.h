@@ -24,17 +24,21 @@ public:
     Q_INVOKABLE void getUserList();
     Q_INVOKABLE void deleteUser(int id);
     Q_INVOKABLE void addUser(QString name);
-    Q_INVOKABLE void addBook(QString isbn);
+    Q_INVOKABLE void requestBookDetail(QString isbn);
     Q_INVOKABLE void closeDb();
 
 private:
     QSqlDatabase db;
     Network network;
+    QString addBookIsbn;
 
     enum columnNum {
         ID = 0,
         NAME = 1
     };
+
+private slots:
+    void addBook();
 };
 
 #endif // QUICKITEM_H

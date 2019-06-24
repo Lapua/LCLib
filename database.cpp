@@ -1,9 +1,11 @@
 #include "database.h"
-#include <QDebug>
+#include <QSqlError>
 
 Database::Database()
 {
     db = QSqlDatabase::database();
+
+    connect(&network, &Network::responseReceived, this, &Database::addBook);
 }
 
 Database::~Database()
@@ -53,16 +55,30 @@ void Database::deleteUser(int id)
 void Database::addUser(QString name)
 {
     if (!name.isEmpty()) {
-        QString queryStr("insert into users (name) values('" + name + "')");
-        db.exec(queryStr);
+        QSqlQuery query(db);
+        query.prepare("insert into users (name) values(:name)");
+        query.bindValue(":name", name);
+        query.exec();
     } else {
         qWarning() << "Failed to add user: user name is empty";
     }
 }
 
-void Database::addBook(QString isbn)
+void Database::requestBookDetail(QString isbn)
 {
     network.getBookDetail(isbn);
+    addBookIsbn = isbn;
+}
+
+void Database::addBook()
+{
+    QString *title = network.getTitle();
+    QSqlQuery query(db);
+    query.prepare("insert into books (title, isbn) values(:title, :isbn)");
+    query.bindValue(":title", *title);
+    query.bindValue(":isbn", addBookIsbn);
+    query.exec();
+    qDebug() << query.lastError();
 }
 
 void Database::closeDb()
