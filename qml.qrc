@@ -19,7 +19,6 @@
         <file>Background.qml</file>
         <file>LibMenu.qml</file>
         <file>search/SearchButton.qml</file>
-        <file>search/SearchOption.qml</file>
         <file>parts/CheckBox.qml</file>
         <file>pics/check.svg</file>
         <file>search/DetailTextParts.qml</file>
@@ -28,5 +27,6 @@
         <file>user/Delegate.qml</file>
         <file>user/Add.qml</file>
         <file>addBook/AddBook.qml</file>
+        <file>search/SearchWord.qml</file>
     </qresource>
 </RCC>

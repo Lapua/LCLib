@@ -36,8 +36,8 @@ void Database::getUserList()
     for (int i = 0; i < model.rowCount(); i++) {
         QSqlRecord record = model.record(i);
 
-        int id = record.value(columnNum::ID).toInt();
-        QString name = record.value(columnNum::NAME).toString();
+        int id = record.value(usersColumnNum::usersID).toInt();
+        QString name = record.value(usersColumnNum::NAME).toString();
 
         list.append(new DBModel(id, name));
     }
@@ -83,4 +83,29 @@ void Database::addBook()
 void Database::closeDb()
 {
     db.close();
+}
+
+void Database::searchWord(QString word, bool available)
+{
+    QSqlQuery query(db);
+    QString queryStr("select title, having_user_id from books where title like :word");
+    if (available) {
+        queryStr.append("and habing_user_id = 0");
+    }
+    query.prepare(queryStr);
+    query.bindValue(":word", "%" + word + "%");
+    query.exec();
+
+    QSqlQueryModel model;
+    model.setQuery(query);
+
+    QList<QObject*> list;
+    for (int i = 0; i < model.rowCount(); i++) {
+        QSqlRecord record = model.record(i);
+
+        int id = record.value(booksColumnNum::booksID).toInt();
+        QString title = record.value(booksColumnNum::TITLE).toString();
+
+        //list.append(new DBModel(id, name));
+    }
 }

@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import "../parts"
-import "PageBack.js" as JsUtil
 
 Item {
     Rectangle {
@@ -35,10 +34,7 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        searchLoader.source = "SearchList.qml"
-                        cppGetJson.requestGet(searchWordID.text, " ")
-                        cppPageBack.setHistory("SearchOption.qml");
-                        searchWordID.clear()
+                        db.searchWord("東京", false);
                     }
                 }
             }

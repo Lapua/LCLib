@@ -2,7 +2,6 @@
 
 import QtQuick 2.6
 import "../parts"   //rootからの絶対パスに修正しよう!
-import "PageBack.js" as JsUtil
 
 Item {
     TopLabel {

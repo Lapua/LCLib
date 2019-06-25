@@ -1,7 +1,6 @@
 //検索のテキスト欄やボタン
 import "../parts"
 import QtQuick 2.6
-import "PageBack.js" as JsUtil
 
 Item {
     id: searchMenuRoot
@@ -13,31 +12,14 @@ Item {
         columnSpacing: searchMenuRoot.width/15
 
         SearchButton {
-            text: "キーワード"
+            text.text: "キーワード"
             onClicked: {
-                searchLoader.source = "SearchOption.qml"
-                cppPageBack.setHistory("SearchMenu.qml");
+                searchLoader.source = "SearchWord.qml"
             }
         }
 
         SearchButton {
-            text: "タイトル"
-        }
-
-        SearchButton {
-            text: "ジャンル"
-        }
-
-        SearchButton {
-            text: "著者"
-        }
-
-        SearchButton {
-            text: "出版社"
-        }
-
-        SearchButton {
-            text: "貸出中一覧"
+            text.text: "alice"
         }
     }
 }
