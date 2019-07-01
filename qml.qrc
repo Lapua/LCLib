@@ -13,7 +13,6 @@
         <file>pics/shutdown.svg</file>
         <file>readBook/Lend.qml</file>
         <file>readBook/Return.qml</file>
-        <file>search/SearchDetail.qml</file>
         <file>search/SearchMain.qml</file>
         <file>search/SearchMenu.qml</file>
         <file>Background.qml</file>
@@ -21,12 +20,14 @@
         <file>search/SearchButton.qml</file>
         <file>parts/CheckBox.qml</file>
         <file>pics/check.svg</file>
-        <file>search/DetailTextParts.qml</file>
         <file>search/SearchList.qml</file>
-        <file>user/List.qml</file>
-        <file>user/Delegate.qml</file>
-        <file>user/Add.qml</file>
-        <file>addBook/AddBook.qml</file>
         <file>search/SearchWord.qml</file>
+        <file>search/SearchLentList.qml</file>
+        <file>others/AddBook.qml</file>
+        <file>others/user/Add.qml</file>
+        <file>others/user/Delegate.qml</file>
+        <file>others/user/List.qml</file>
+        <file>others/OthersMenu.qml</file>
+        <file>others/OtherMenuButton.qml</file>
     </qresource>
 </RCC>

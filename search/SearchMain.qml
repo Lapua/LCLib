@@ -7,26 +7,6 @@ Item {
     TopLabel {
         id: topLabel
         text: "検索"
-
-        //戻るボタン
-        Image {
-            visible: true
-            anchors {
-                verticalCenter: parent.verticalCenter
-                left: parent.left
-                leftMargin: y*2
-            }
-            height: parent.height/3*2
-            fillMode: Image.PreserveAspectFit
-            source: "../pics/arrow.svg"
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    cppPageBack.back()
-                }
-            }
-        }
     }
 
     //各画面

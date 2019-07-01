@@ -45,12 +45,7 @@ Item {
                 horizontalAlignment: TextInput.AlignHCenter
                 verticalAlignment: TextInput.AlignVCenter
                 font.pointSize: barcodeText.fontInfo.pointSize
-            }
-
-            //Debug
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
+                onAccepted: {
                     db.lending(isbn.text)
                 }
             }

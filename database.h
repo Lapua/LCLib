@@ -27,23 +27,12 @@ public:
     Q_INVOKABLE void requestBookDetail(QString isbn);
     Q_INVOKABLE void closeDb();
     Q_INVOKABLE void searchWord(QString word, bool available);
+    Q_INVOKABLE void getLentList();
 
 private:
     QSqlDatabase db;
     Network network;
     QString addBookIsbn;
-
-    enum booksColumnNum {
-        booksID = 0,
-        TITLE = 1,
-        ISBN = 2,
-        HAVING_USER_ID = 3
-    };
-
-    enum usersColumnNum {
-        usersID = 0,
-        NAME = 1
-    };
 
 private slots:
     void addBook();

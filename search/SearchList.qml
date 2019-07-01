@@ -1,9 +1,7 @@
-//検索結果のListView部分
-
 import QtQuick 2.7
-import QtQuick.Layouts 1.3
 
 ListView {
+    anchors.fill: parent
     spacing: 5
     model: searchModel
     delegate: Rectangle {
@@ -13,21 +11,13 @@ ListView {
         border.width: 5
         border.color: "#81D4FA"
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                cppPageBack.setHistory("SearchList.qml");
-
-            }
-        }
-
         Text {
             id: modelText
             anchors {
                 fill: parent
                 margins: 10
             }
-            text: model.modelData
+            text: name
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
             fontSizeMode: Text.Fit

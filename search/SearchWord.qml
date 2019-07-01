@@ -34,7 +34,8 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        db.searchWord("東京", false);
+                        db.searchWord(searchWordID.text, checkBoxID.onOff)
+                        searchLoader.setSource("SearchList.qml")
                     }
                 }
             }
@@ -66,15 +67,4 @@ Item {
         text: "貸出可"
         color: "white"
     }
-
-    /*MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            searchState.state = "list"
-            optionID.visible = false
-            cppGetJson.requestGet(searchWordID.text, " ")
-            cppPageBack.setStateID("option", "listID");
-            searchWordID.clear()
-        }
-    }*/
 }

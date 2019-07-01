@@ -3,7 +3,12 @@
 
 Database::Database()
 {
-    db = QSqlDatabase::database();
+    db = QSqlDatabase::addDatabase("QPSQL");
+    db.setHostName("localhost");
+    db.setDatabaseName("qt_practice");
+    if (!db.open("postgres", "")) {
+        qWarning() << "failed to connect database";
+    }
 
     connect(&network, &Network::responseReceived, this, &Database::addBook);
 }
@@ -15,29 +20,29 @@ Database::~Database()
 
 void Database::lending(int isbn)
 {
-    QString queryStr("update only books set having_user_id=1 where isbn=");
+    QString queryStr("update only books set user_id=1 where isbn=");
     queryStr.append(QString::number(isbn));
     db.exec(queryStr);
 }
 
 void Database::returning(int isbn)
 {
-    QString queryStr("update only books set having_user_id=0 where isbn=");
+    QString queryStr("update only books set user_id=0 where isbn=");
     queryStr.append(QString::number(isbn));
     db.exec(queryStr);
 }
 
 void Database::getUserList()
 {
-    QSqlQueryModel model;
-    model.setQuery("select * from users", db);
+    QSqlQuery query(db);
+    query.exec("select * from users");
 
     QList<QObject*> list;
-    for (int i = 0; i < model.rowCount(); i++) {
-        QSqlRecord record = model.record(i);
+    while (query.next()) {
+        QSqlRecord record = query.record();
 
-        int id = record.value(usersColumnNum::usersID).toInt();
-        QString name = record.value(usersColumnNum::NAME).toString();
+        int id = record.value("id").toInt();
+        QString name = record.value("name").toString();
 
         list.append(new DBModel(id, name));
     }
@@ -88,24 +93,39 @@ void Database::closeDb()
 void Database::searchWord(QString word, bool available)
 {
     QSqlQuery query(db);
-    QString queryStr("select title, having_user_id from books where title like :word");
+    QString queryStr("select title, user_id from books where title like :word");
     if (available) {
-        queryStr.append("and habing_user_id = 0");
+        queryStr.append(" and user_id = 0");
     }
+    queryStr.append(" order by title");
     query.prepare(queryStr);
     query.bindValue(":word", "%" + word + "%");
     query.exec();
 
-    QSqlQueryModel model;
-    model.setQuery(query);
+    QList<QObject*> list;
+    while (query.next()) {
+        QSqlRecord record = query.record();
+        QString title = record.value("title").toString();
+        list.append(new DBModel(title));
+    }
+    StaticProvider::getEngine()->rootContext()
+            ->setContextProperty("searchModel",  QVariant::fromValue(list));
+}
+
+void Database::getLentList()
+{
+    QSqlQuery query(db);
+    query.exec("select books.title, users.name from books inner join users"
+                   " on books.user_id = users.id order by books.title");
 
     QList<QObject*> list;
-    for (int i = 0; i < model.rowCount(); i++) {
-        QSqlRecord record = model.record(i);
+    while (query.next()) {
+        QSqlRecord record = query.record();
+        QString title = record.value("books.title").toString();
+        QString name = record.value("users.name").toString();
 
-        int id = record.value(booksColumnNum::booksID).toInt();
-        QString title = record.value(booksColumnNum::TITLE).toString();
-
-        //list.append(new DBModel(id, name));
+        list.append(new DBModel(title, name));
     }
+
+    StaticProvider::getEngine()->rootContext()->setContextProperty("lentModel",  QVariant::fromValue(list));
 }

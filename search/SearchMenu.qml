@@ -1,25 +1,28 @@
 //検索のテキスト欄やボタン
 import "../parts"
 import QtQuick 2.6
+import QtQuick.Layouts 1.3
 
 Item {
     id: searchMenuRoot
 
-    Grid {
+    RowLayout {
         anchors.centerIn: parent
-        columns: 3
-        rowSpacing: searchMenuRoot.height/8
-        columnSpacing: searchMenuRoot.width/15
+        spacing: searchMenuRoot.width/15
 
         SearchButton {
             text.text: "キーワード"
             onClicked: {
-                searchLoader.source = "SearchWord.qml"
+                searchLoader.setSource("SearchWord.qml")
             }
         }
 
         SearchButton {
-            text.text: "alice"
+            text.text: "貸出中一覧"
+            onClicked: {
+                searchLoader.setSource("SearchLentList.qml")
+                db.getLentList();
+            }
         }
     }
 }

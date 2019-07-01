@@ -11,7 +11,6 @@
 #include "staticprovider.h"
 
 QQmlApplicationEngine *StaticProvider::m_engine;
-QSqlDatabase StaticProvider::m_database;
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +19,6 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     StaticProvider::setEngine(&engine);
-    StaticProvider::connectDatabase();
     qmlRegisterType<Database>("Database", 1, 0, "Database");
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

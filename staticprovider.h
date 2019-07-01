@@ -17,22 +17,10 @@ public:
         return m_engine;
     }
 
-    static void connectDatabase() {
-        QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
-        db.setHostName("localhost");
-        db.setDatabaseName("qt_practice");
-        if (!db.open("postgres", "")) {
-            qWarning() << "failed to connect database";
-        }
-    }
 
-    static QSqlDatabase* getDatabase() {
-        return &m_database;
-    }
 
 private:
     static QQmlApplicationEngine *m_engine;
-    static QSqlDatabase m_database;
 };
 
 #endif // ENGINEPROVIDER_H

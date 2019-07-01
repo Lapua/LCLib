@@ -1,5 +1,4 @@
 ﻿import QtQuick 2.6
-import QtQuick.Layouts 1.3
 import "parts"
 
 Item {
@@ -33,37 +32,22 @@ Item {
         }
     }
 
-    RowLayout {
+    Row {
         id: bottomItem
-        spacing: this.width/20
-        anchors.top: topRow.bottom
-        anchors.bottom: parent.bottom
-        anchors.right: topRow.right
-        anchors.left: topRow.left
-
-        Button {
-            color: "#4CAF50"
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.height/3
-
-            Image {
-                anchors.fill: parent
-                anchors.bottomMargin: parent.height/10
-                anchors.topMargin: parent.height/10
-                source: "pics/shutdown.png"
-                fillMode: Image.PreserveAspectFit
-            }
-
-            onClicked: {
-                Qt.quit();
-            }
+        spacing: parent.width/6
+        anchors {
+            top: topRow.bottom
+            topMargin: parent.height/10
+            bottom: parent.bottom
+            right: topRow.right
+            left: topRow.left
         }
 
         Button {
             id: seachButton
             color: "#4CAF50"
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.height/3
+            width: root.width/3
+            height: parent.height/2
 
             Image {
                 anchors.fill: parent
@@ -80,8 +64,8 @@ Item {
 
         Button {
             color: "#4CAF50"
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.height/3
+            width: root.width/3
+            height: parent.height/2
 
             Image {
                 anchors.fill: parent
@@ -91,7 +75,7 @@ Item {
                 fillMode: Image.PreserveAspectFit
             }
             onClicked: {
-                rootLoader.setSource("user/List.qml")
+                rootLoader.setSource("others/OthersMenu.qml")
                 db.getUserList()
             }
         }

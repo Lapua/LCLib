@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import "qrc:/parts"
 
@@ -45,14 +45,11 @@ Item {
                 horizontalAlignment: TextInput.AlignHCenter
                 verticalAlignment: TextInput.AlignVCenter
                 font.pointSize: barcodeText.fontInfo.pointSize
-            }
 
-            //Debug
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    //db.addBook(isbn.text)
-                    db.requestBookDetail("9784325226826")
+                onAccepted: {
+                    if (text !== "") {
+                        db.requestBookDetail(text)
+                    }
                 }
             }
         }
