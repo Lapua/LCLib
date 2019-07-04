@@ -23,11 +23,11 @@
         <file>search/SearchList.qml</file>
         <file>search/SearchWord.qml</file>
         <file>search/SearchLentList.qml</file>
-        <file>others/AddBook.qml</file>
-        <file>others/user/Add.qml</file>
-        <file>others/user/Delegate.qml</file>
-        <file>others/user/List.qml</file>
-        <file>others/OthersMenu.qml</file>
-        <file>others/OtherMenuButton.qml</file>
+        <file>configuration/AddBook.qml</file>
+        <file>configuration/Button.qml</file>
+        <file>configuration/Menu.qml</file>
+        <file>configuration/user/Add.qml</file>
+        <file>configuration/user/Delegate.qml</file>
+        <file>configuration/user/List.qml</file>
     </qresource>
 </RCC>
