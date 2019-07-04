@@ -29,5 +29,6 @@
         <file>configuration/user/Add.qml</file>
         <file>configuration/user/Delegate.qml</file>
         <file>configuration/user/List.qml</file>
+        <file>configuration/Main.qml</file>
     </qresource>
 </RCC>

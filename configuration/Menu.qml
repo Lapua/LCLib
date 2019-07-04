@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
-import "../parts" as CommonParts
+import "qrc:/parts" as CommonParts
 
 Item {
     anchors.fill: parent
@@ -11,29 +11,30 @@ Item {
     }
 
     GridLayout {
-        anchors {
-            centerIn: parent
-            verticalCenterOffset: topLabelId.height/2
-        }
-
+        anchors.centerIn: parent
+        anchors.verticalCenterOffset: topLabelId.height/2
         width: parent.width/5*4
         height: parent.height/3*2
         columns: 2
         columnSpacing: width/5
         rowSpacing: height/5
 
-        Component.onCompleted: console.log(parent.width)
-
         Button {
             text.text: "ユーザー管理"
+            onClicked: {
+                configLoader.setSource("user/List.qml")
+                db.getUserList()
+            }
         }
 
         Button {
             text.text: "ユーザー追加"
+            onClicked: configLoader.setSource("user/Add.qml")
         }
 
         Button {
             text.text: "書籍登録"
+            onClicked: configLoader.setSource("AddBook.qml")
         }
 
         Button {

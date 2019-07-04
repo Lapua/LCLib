@@ -75,7 +75,7 @@ Item {
                 fillMode: Image.PreserveAspectFit
             }
             onClicked: {
-                rootLoader.setSource("configuration/Menu.qml")
+                rootLoader.setSource("configuration/Main.qml")
             }
         }
     }

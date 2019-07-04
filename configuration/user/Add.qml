@@ -44,7 +44,7 @@ Item {
 
         onClicked: {
             db.addUser(textinputId.text)
-            rootLoader.setSource("../LibMenu.qml")
+            rootLoader.setSource("qrc:/LibMenu.qml")
         }
     }
 }
