@@ -18,17 +18,23 @@ Database::~Database()
     //
 }
 
-void Database::lending(int isbn)
+void Database::lending(int user_id)
 {
     QString queryStr("update only books set user_id=1 where isbn=");
     queryStr.append(QString::number(isbn));
     db.exec(queryStr);
+
+    QSqlQuery query(db);
+    query.prepare("update only books set user_id=:user_id where isbn=:isbn");
+    query.bindValue(":user_id", user_id);
+    query.bindValue(":isbn", isbn);
+    query.exec();
 }
 
-void Database::returning(int isbn)
+void Database::returning(QString isbn)
 {
     QString queryStr("update only books set user_id=0 where isbn=");
-    queryStr.append(QString::number(isbn));
+    queryStr.append(isbn);
     db.exec(queryStr);
 }
 
@@ -128,4 +134,9 @@ void Database::getLentList()
     }
 
     StaticProvider::getEngine()->rootContext()->setContextProperty("lentModel",  QVariant::fromValue(list));
+}
+
+void Database::setIsbn(QString p_isbn)
+{
+    isbn = p_isbn;
 }

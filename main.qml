@@ -9,8 +9,9 @@ import Database 1.0
 Window {
     id: root
     visible: true
-    width: 800
-    height: 480
+    //Component.onCompleted: showFullScreen()
+    width: 500
+    height: 300
 
     Database{id: db}
 

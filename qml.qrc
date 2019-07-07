@@ -30,5 +30,6 @@
         <file>configuration/user/Delegate.qml</file>
         <file>configuration/user/List.qml</file>
         <file>configuration/Main.qml</file>
+        <file>readBook/UserList.qml</file>
     </qresource>
 </RCC>

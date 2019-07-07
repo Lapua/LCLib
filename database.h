@@ -19,8 +19,8 @@ class Database : public QQuickItem
 public:
     Database();
     ~Database();
-    Q_INVOKABLE void lending(int isbn);
-    Q_INVOKABLE void returning(int isbn);
+    Q_INVOKABLE void lending(int user_id);
+    Q_INVOKABLE void returning(QString isbn);
     Q_INVOKABLE void getUserList();
     Q_INVOKABLE void deleteUser(int id);
     Q_INVOKABLE void addUser(QString name);
@@ -28,11 +28,13 @@ public:
     Q_INVOKABLE void closeDb();
     Q_INVOKABLE void searchWord(QString word, bool available);
     Q_INVOKABLE void getLentList();
+    Q_INVOKABLE void setIsbn(QString isbn);
 
 private:
     QSqlDatabase db;
     Network network;
     QString addBookIsbn;
+    QString isbn;
 
 private slots:
     void addBook();

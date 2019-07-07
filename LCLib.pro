@@ -17,7 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    pageback.cpp \
     database.cpp \
     network.cpp
 
@@ -38,5 +37,4 @@ HEADERS += \
     database.h \
     dbmodel.h \
     staticprovider.h \
-    pageback.h \
     network.h

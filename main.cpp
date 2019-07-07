@@ -6,7 +6,6 @@
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickview.h>
 #include "network.h"
-#include "pageback.h"
 #include "database.h"
 #include "staticprovider.h"
 
@@ -26,8 +25,6 @@ int main(int argc, char *argv[])
 
     QObject *rootObject = new QObject;
     rootObject = engine.rootObjects().first();
-    PageBack *pageback = new PageBack(rootObject);
-    engine.rootContext() -> setContextProperty("cppPageBack", pageback);
 
     if (engine.rootObjects().isEmpty())
         return -1;
