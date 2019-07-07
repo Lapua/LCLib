@@ -46,6 +46,7 @@ Item {
                 verticalAlignment: TextInput.AlignVCenter
                 font.pointSize: barcodeText.fontInfo.pointSize
                 onAccepted: {
+                    db.getUserList()
                     db.setIsbn(isbn.text)
                     rootLoader.setSource("UserList.qml")
                 }

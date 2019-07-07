@@ -20,10 +20,6 @@ Database::~Database()
 
 void Database::lending(int user_id)
 {
-    QString queryStr("update only books set user_id=1 where isbn=");
-    queryStr.append(QString::number(isbn));
-    db.exec(queryStr);
-
     QSqlQuery query(db);
     query.prepare("update only books set user_id=:user_id where isbn=:isbn");
     query.bindValue(":user_id", user_id);
@@ -33,9 +29,10 @@ void Database::lending(int user_id)
 
 void Database::returning(QString isbn)
 {
-    QString queryStr("update only books set user_id=0 where isbn=");
-    queryStr.append(isbn);
-    db.exec(queryStr);
+    QSqlQuery query(db);
+    query.prepare("update only books set user_id=0 where isbn=:isbn");
+    query.bindValue(":isbn", isbn);
+    query.exec();
 }
 
 void Database::getUserList()
